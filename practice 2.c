@@ -1,14 +1,21 @@
 #include <stdio.h>
-
+ 
 int main()
 {
-    int i;
-    scanf("%d", &i);
+    int a;
+    int b;
+    scanf("%d %d", &a, &b);
 
-    while (i - 1200 >= 0)
+    for (; a <= b; a++)
     {
-        printf("%d\n", i-1200);
-        i -= 1200;
+        if (a % 5 == 0 && a % 11 == 0)
+            printf("FizzBuzz\n");
+        else if (a % 5 == 0)
+            printf("Fizz\n");
+        else if (a % 11 == 0)
+            printf("Buzz\n");
+        else
+            printf("%d\n",a);
     }
     return 0;
 }
