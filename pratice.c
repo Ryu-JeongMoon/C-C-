@@ -1,31 +1,17 @@
 #include <stdio.h>
-#include <stdbool.h>
 
 int main()
 {
-    // goto는 에러처리할 때 유용, 중복되는 코드를 줄일 수 있음
-    int gender;
-    int age;
-    int isOwner;
-    scanf("%d %d %d", &gender, &age, &isOwner);
+    int *numPtr1;
+    int **numPtr2;
+    int num1;
 
-    printf("안녕하세요\n");
-    printf("Hello\n");
+    scanf("%d", &num1);
 
-    if (gender == 2)
-    {
-        goto EXIT;
-    }
-    if (age < 30 || age > 40)
-    {
-        goto EXIT;
-    }
-    if (isOwner == false)
-    {
-        goto EXIT;
-    }
-EXIT:
-        printf("안녕히계세요\n");
-        printf("Bye\n");
+    numPtr1 = &num1;
+    numPtr2 = &numPtr1;
+
+    printf("%d\n", **numPtr2);
+
     return 0;
 }
