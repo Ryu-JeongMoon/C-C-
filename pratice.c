@@ -3,22 +3,26 @@
 
 int main()
 {
-    int num1;
-    int num2;
+    // 177을 2진수로 나타내기
+    int decimal = 177;
+    int binary[8] = {0,}; // 배열 만들고 0으로 초기화
 
-    int *numPtr1 = malloc(sizeof(int));
-    int *numPtr2 = malloc(sizeof(int));
+    int position = 0;
+    while (1) // 무한루프
+    {
+        binary[position] = decimal % 2; // 나머지 저장
+        decimal /= 2;
+        position++;
+
+        if (decimal == 0)
+        break;
+    }
     
-
-    scanf("%d %d", &num1, &num2);
-
-    *numPtr1 = num1;
-    *numPtr2 = num2;
-
-    printf("%d\n", *numPtr1 + *numPtr2);
-
-    free(numPtr1);
-    free(numPtr2);
-
+    // 역순 출력
+    for (int i = position - 1; i >= 0; i--) // 인덱스는 0부터 시작이므로 조건식에 0포함
+    {
+        printf("%d", binary[i]);
+    }
+    printf("\n");
     return 0;
 }
